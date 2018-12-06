@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="czx.wt.mapper.UrlMapper">
+    <select id="getUrlByRid" parameterType="java.lang.Integer" resultType="czx.wt.pojo.Urls">
+        select u.id,u.url_name as urlName,ru.rid from urls u join role_url ru on u.id = ru.uid
+        where ru.rid = #{rid}
+    </select>
+
+    <select id="getAllUrl" resultType="czx.wt.pojo.Urls">
+        select id,url_name as urlName from urls;
+    </select>
+</mapper>
